@@ -1,0 +1,6 @@
+@CookieRunKingdomAPI_HostAddress = http://localhost:5118
+
+GET {{CookieRunKingdomAPI_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
