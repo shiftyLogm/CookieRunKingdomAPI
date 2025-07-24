@@ -1,5 +1,5 @@
 ﻿using AutoMapper;
-using CookieRunKingdomAPI.Data.Dtos;
+using CookieRunKingdomAPI.Data.Dtos.Cookie;
 using CookieRunKingdomAPI.Models;
 
 namespace CookieRunKingdomAPI.Profiles;
@@ -8,6 +8,9 @@ public class CookieProfile : Profile
 {
     public CookieProfile() 
     {
-        CreateMap<CookieDto, Cookie>();
+        CreateMap<CreateCookieDto, Cookie>();
+        CreateMap<UpdateCookieDto, Cookie>();
+        CreateMap<Cookie, UpdateCookieDto>();
+        CreateMap<Cookie, ReadCookieDto>();
     }
 }

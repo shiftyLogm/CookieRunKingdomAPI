@@ -1,6 +1,5 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using CookieRunKingdomAPI.Models;
-using CookieRunKingdomAPI.Enums;
 
 namespace CookieRunKingdomAPI.Data.Contexts;
 
@@ -12,6 +11,15 @@ public class CookieContext : DbContext
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
-        modelBuilder.Entity<Cookie>(entity => entity.ToTable("cookie"));
+        modelBuilder.Entity<Cookie>(entity =>
+        {
+            entity.ToTable("cookie");
+            entity.Property(e => e.Id).HasColumnName("id");
+            entity.Property(e => e.Name).HasColumnName("name");
+            entity.Property(e => e.Type).HasColumnName("type");
+            entity.Property(e => e.Rarity).HasColumnName("rarity");
+            entity.Property(e => e.Element).HasColumnName("element");
+            entity.Property(e => e.Position).HasColumnName("position");
+        });
     }
 }

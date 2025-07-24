@@ -10,9 +10,9 @@ public static class ApiServices
     public static IServiceCollection UseApiServices(this IServiceCollection services, ConfigurationManager configuration)
     {
         services.AddControllers()
-            .AddJsonOptions(options =>
+            .AddNewtonsoftJson(options =>
             {
-                options.JsonSerializerOptions.Converters.Add(new JsonStringEnumConverter());
+                options.SerializerSettings.Converters.Add(new Newtonsoft.Json.Converters.StringEnumConverter());
             });
 
         services.AddEndpointsApiExplorer();
