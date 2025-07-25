@@ -1,4 +1,6 @@
 ﻿using CookieRunKingdomAPI.Enums;
+using CookieRunKingdomAPI.Resources;
+using CookieRunKingdomAPI.Services;
 using System.ComponentModel.DataAnnotations;
 
 namespace CookieRunKingdomAPI.Data.Dtos.Cookie;
@@ -6,7 +8,7 @@ namespace CookieRunKingdomAPI.Data.Dtos.Cookie;
 public class UpdateCookieDto
 {
     [Required]
-    [MaxLength(100, ErrorMessage = "The cookie name cannot exceed 100 characters.")]
+    [StringLength(100, ErrorMessageResourceName = "CookieNameMaxLengthError", ErrorMessageResourceType = typeof(MessageService))]
     public required string Name { get; set; }
 
     [Required]

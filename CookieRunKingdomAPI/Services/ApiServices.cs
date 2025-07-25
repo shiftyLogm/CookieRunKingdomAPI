@@ -3,7 +3,7 @@ using CookieRunKingdomAPI.Enums;
 using CookieRunKingdomAPI.Profiles;
 using Microsoft.EntityFrameworkCore;
 using Npgsql.NameTranslation;
-using System.Text.Json.Serialization;
+using CookieRunKingdomAPI.Resources;
 
 public static class ApiServices
 {
@@ -17,6 +17,7 @@ public static class ApiServices
 
         services.AddEndpointsApiExplorer();
         services.AddSwaggerGen();
+        services.AddLocalization(options => options.ResourcesPath = "Resources");
 
         AddContexts(services, configuration);
         ConfigureAutoMapper(services);

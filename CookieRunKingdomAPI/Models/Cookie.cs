@@ -1,5 +1,6 @@
 ﻿using CookieRunKingdomAPI.Enums;
 using System.ComponentModel.DataAnnotations;
+using CookieRunKingdomAPI.Resources;
 
 namespace CookieRunKingdomAPI.Models;
 
@@ -8,9 +9,9 @@ public class Cookie
     [Key]
     [Required]
     public Guid Id { get; set; }
-
+    
     [Required]
-    [MaxLength(100, ErrorMessage = "The cookie name cannot exceed 100 characters.")]
+    [StringLength(100, ErrorMessageResourceName = "CookieNameMaxLengthError", ErrorMessageResourceType = typeof(MessageService))]
     public required string Name { get; set; }
 
     [Required]
